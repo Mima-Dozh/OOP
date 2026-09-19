@@ -1,0 +1,1 @@
+int Count_Of_Ones_In_Binary_Representation_Of_Window(int from, int to);
