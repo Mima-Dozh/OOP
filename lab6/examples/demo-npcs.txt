@@ -1,0 +1,6 @@
+BF3 1
+4
+orc "Orc One" 0 0
+druid "Druid One" 3 4
+squirrel "Squirrel One" 5 5
+squirrel "Far Squirrel" 300 300

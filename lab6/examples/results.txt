@@ -1,0 +1,13 @@
+Commands: add orc|squirrel|druid NAME X Y; list; save FILE; load FILE; fight RANGE; quit
+orc "Orc One" 0 0
+druid "Druid One" 3 4
+squirrel "Squirrel One" 5 5
+squirrel "Far Squirrel" 300 300
+orc "Orc One" killed druid "Druid One"
+druid "Druid One" killed squirrel "Squirrel One"
+orc "Orc One" 0 0
+squirrel "Far Squirrel" 300 300
+orc "Orc One" 0 0
+druid "Druid One" 3 4
+squirrel "Squirrel One" 5 5
+squirrel "Far Squirrel" 300 300

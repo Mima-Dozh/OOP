@@ -1,0 +1,52 @@
+cmake_minimum_required(VERSION 3.20)
+project(oop_lab6 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+option(ENABLE_SANITIZERS "Enable AddressSanitizer and UndefinedBehaviorSanitizer" OFF)
+if(ENABLE_SANITIZERS AND CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+  add_compile_options(-fsanitize=address,undefined -fno-omit-frame-pointer)
+  add_link_options(-fsanitize=address,undefined)
+endif()
+find_package(Threads REQUIRED)
+add_library(lab6_core
+  src/npc/factory.cpp
+  src/npc/kind.cpp
+  src/npc/npc.cpp
+  src/events/observer.cpp
+  src/combat/visitor.cpp
+  src/world/world.cpp
+  src/npc/orc.cpp
+  src/npc/squirrel.cpp
+  src/npc/druid.cpp)
+target_include_directories(lab6_core PUBLIC include)
+target_link_libraries(lab6_core PUBLIC Threads::Threads)
+add_executable(lab6 src/main.cpp)
+target_link_libraries(lab6 PRIVATE lab6_core)
+if(MSVC)
+  target_compile_options(lab6 PRIVATE /W4 /utf-8)
+  target_compile_options(lab6_core PRIVATE /W4 /utf-8)
+else()
+  target_compile_options(lab6 PRIVATE -Wall -Wextra -Wpedantic)
+  target_compile_options(lab6_core PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+include(CTest)
+if(BUILD_TESTING)
+  include(FetchContent)
+  if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+  endif()
+  FetchContent_Declare(googletest
+    URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip)
+  set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+  set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
+  if(NOT DEFINED FETCHCONTENT_SOURCE_DIR_GOOGLETEST AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../lab1/build/_deps/googletest-src/CMakeLists.txt")
+    set(FETCHCONTENT_SOURCE_DIR_GOOGLETEST "${CMAKE_CURRENT_SOURCE_DIR}/../lab1/build/_deps/googletest-src")
+  endif()
+  FetchContent_MakeAvailable(googletest)
+  add_executable(lab6_tests tests/tests.cpp)
+  target_link_libraries(lab6_tests PRIVATE lab6_core GTest::gtest_main)
+  include(GoogleTest)
+  gtest_discover_tests(lab6_tests)
+endif()

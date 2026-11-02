@@ -1,0 +1,11 @@
+add orc "Orc One" 0 0
+add druid "Druid One" 3 4
+add squirrel "Squirrel One" 5 5
+add squirrel "Far Squirrel" 300 300
+list
+save demo-npcs.txt
+fight 10
+list
+load demo-npcs.txt
+list
+quit
