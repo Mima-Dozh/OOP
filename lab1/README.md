@@ -1,29 +1,25 @@
-# lab1
+# Запуск лабораторной 1
 
-A C++17 project built with CMake 3.16 or newer.
+Нужны CMake 3.16+ и компилятор с поддержкой C++17.
 
-## Build and run
-
-Run from this directory:
+## Сборка
 
 ```sh
-cmake -S . -B build
-cmake --build build
+cd /Users/dima-mozhaev/Documents/OOP/lab1
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build --parallel
+```
+
+Для сборки без тестов добавьте `-DBUILD_TESTING=OFF` к команде конфигурации CMake.
+
+## Запуск программы
+
+```sh
 ./build/lab1
 ```
 
-The `lab1` executable is built from `bin/main.cpp`.
-
-## Unit tests
-
-Tests use Google Test, downloaded during the first CMake configuration
-(internet access is required). Run from this directory:
+## Запуск тестов
 
 ```sh
-cmake -S . -B build -DBUILD_TESTING=ON
-cmake --build build
 ctest --test-dir build --output-on-failure
 ```
-
-To build without tests or downloading Google Test, configure with
-`-DBUILD_TESTING=OFF`.

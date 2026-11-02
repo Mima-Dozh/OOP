@@ -1,0 +1,10 @@
+Integers: 1 2 3 4 5 6 7 8 9 10
+Sum=55
+After erase(4): 1 2 3 4 6 7 8 9 10
+Students:
+Anna 20 4.8
+Ivan 19 4.5
+Before cleanup: values=1, students=1, allocations=2
+Arrays and their MemoryResource have been destroyed
+Without deallocate: allocations=1, free bytes=512
+MemoryResource destroyed; its entire memory block released

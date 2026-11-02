@@ -1,0 +1,13 @@
+Commands: add triangle|square|rectangle x1 y1 ...; list; total; erase INDEX; demo; quit
+0: Triangle (0, 0) (2, 0) (1, 1.73205) center=(1, 0.57735) area=1.73205
+1: Square (0, 0) (1, 0) (1, 1) (0, 1) center=(0.5, 0.5) area=1
+2: Rectangle (0, 0) (2, 0) (2, 1) (0, 1) center=(1, 0.5) area=2
+Total area: 4.73205
+Erased
+0: Triangle (0, 0) (2, 0) (1, 1.73205) center=(1, 0.57735) area=1.73205
+1: Rectangle (0, 0) (2, 0) (2, 1) (0, 1) center=(1, 0.5) area=2
+Total area: 3.73205
+Added
+0: Triangle (0, 0) (2, 0) (1, 1.73205) center=(1, 0.57735) area=1.73205
+1: Rectangle (0, 0) (2, 0) (2, 1) (0, 1) center=(1, 0.5) area=2
+2: Square (0, 0) (2, 0) (2, 2) (0, 2) center=(1, 1) area=4

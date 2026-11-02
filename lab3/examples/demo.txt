@@ -1,0 +1,9 @@
+demo
+list
+total
+erase 1
+list
+total
+add square 0 0 2 0 2 2 0 2
+list
+quit

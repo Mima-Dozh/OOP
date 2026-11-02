@@ -1,0 +1,8 @@
+demo
+list
+total
+demo
+total
+erase 1
+total
+quit
